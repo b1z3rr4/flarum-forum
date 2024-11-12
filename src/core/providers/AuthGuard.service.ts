@@ -18,7 +18,7 @@ export class AuthGuard {
       take(1),
       map((token) => {
         if (token) {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/']);
           return false;
         }
         return true;

@@ -90,3 +90,7 @@
 ::ng-deep .mdc-line-ripple::after {
   border-bottom-color: var(--primary-color) !important;
 }
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: var(--text-color) !important;
+}

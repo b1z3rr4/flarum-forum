@@ -1,10 +1,13 @@
 export type User = {
   id: string;
   type: 'users';
-  attributes: {
-    username: string;
-    joinDate: string;
-    bio?: string;
-    avatarUrl?: string;
-  };
+  attributes: Attributes;
+};
+
+export type Attributes = {
+  username: string;
+  joinDate: string;
+  bio?: string;
+  avatarUrl?: string;
+  displayName?: string;
 };

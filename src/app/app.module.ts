@@ -17,14 +17,12 @@ import { TopicsComponent } from './pages/topics/topics.component';
 import { PostCreateComponent } from './components/post-create/post-create.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { LoginComponent } from './pages/login/login.component';
-import { MetaReducer, StoreModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { authReducer } from '../core/stores/auth/auth.reducer';
 import { AuthEffects } from '../core/effects/AuthEffects.service';
 import { HttpClientModule } from '@angular/common/http';
-import { localStorageSyncReducer } from '../core/stores/local-storage.meta-reducer';
-
-const metaReducers: MetaReducer[] = [localStorageSyncReducer];
+import { ProfileEffects } from '../core/effects/ProfileEffects.service';
+import { stores, metaReducers } from '../core/stores';
 
 @NgModule({
   declarations: [
@@ -48,8 +46,8 @@ const metaReducers: MetaReducer[] = [localStorageSyncReducer];
     MatCardModule,
     FormsModule,
     HttpClientModule,
-    StoreModule.forRoot({ auth: authReducer }, { metaReducers }),
-    EffectsModule.forRoot([AuthEffects]),
+    StoreModule.forRoot(stores, { metaReducers }),
+    EffectsModule.forRoot([AuthEffects, ProfileEffects]),
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

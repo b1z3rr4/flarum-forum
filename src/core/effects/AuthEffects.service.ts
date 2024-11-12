@@ -20,7 +20,7 @@ export class AuthEffects {
       ofType(AuthActions.login),
       switchMap((credentials) =>
         this.authService.auth(credentials).pipe(
-          map((response) => AuthActions.loginSuccess({ token: response.token })),
+          map((response) => AuthActions.loginSuccess({ token: response.token, username: credentials.username })),
           catchError((error: ApiError) => of(AuthActions.loginFailure({ error }))),
         ),
       ),
@@ -32,7 +32,7 @@ export class AuthEffects {
       return this.actions$.pipe(
         ofType(AuthActions.loginSuccess),
         tap(() => {
-          this.router.navigate(['']);
+          this.router.navigate(['/']);
         }),
       );
     },
