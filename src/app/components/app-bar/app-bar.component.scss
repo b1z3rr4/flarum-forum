@@ -1,4 +1,8 @@
 .app-bar {
+  top: 0;
+  z-index: 2;
+  position: sticky;
+
   mat-toolbar {
     display: flex;
     justify-content: space-between;

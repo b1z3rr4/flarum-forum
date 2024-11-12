@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { Attributes, Group } from '../../interfaces/user';
 
 const profile = createAction('[Profile] User', props<{ identifier: string }>());
 
@@ -6,12 +7,8 @@ const profileSuccess = createAction(
   '[Profile] User Success',
   props<{
     id: string;
-    attributes: {
-      username: string;
-      joinDate: string;
-      bio?: string;
-      avatarUrl?: string;
-    };
+    attributes: Attributes;
+    included?: Group[] | undefined;
   }>(),
 );
 

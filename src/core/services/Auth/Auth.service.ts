@@ -10,7 +10,7 @@ export class AuthService {
   constructor(private httpClient: HttpClient) {}
 
   auth({ username, password }: { username: string; password: string }) {
-    return this.httpClient.post<LoginResponse>(API_URL + '/token', {
+    return this.httpClient.post<LoginResponse>(`${API_URL}/token`, {
       identification: username,
       password: password,
     });

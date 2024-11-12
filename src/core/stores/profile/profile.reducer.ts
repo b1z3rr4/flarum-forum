@@ -1,15 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
 import { ProfileActions } from './profile.actions';
+import { Attributes, Group } from '../../interfaces/user';
+import { Nullable } from '../../interfaces/utils';
 
 export interface ProfileState {
   id: string | null;
-  attributes: {
-    username: string | null;
-    joinDate: string | null;
-    bio?: string | null;
-    avatarUrl?: string | null;
-    displayName?: string | null;
-  };
+  attributes: Nullable<Attributes>;
+  included?: Group[] | undefined;
   error: unknown | null;
 }
 
@@ -21,6 +18,7 @@ export const initialState: ProfileState = {
     bio: null,
     avatarUrl: null,
   },
+  included: [],
   error: null,
 };
 
@@ -34,10 +32,11 @@ export const profileReducer = createReducer(
   ),
   on(
     ProfileActions.profileSuccess,
-    (state, { attributes, id }): ProfileState => ({
+    (state, { attributes, id, included }): ProfileState => ({
       ...state,
-      attributes,
       id,
+      included,
+      attributes,
     }),
   ),
   on(

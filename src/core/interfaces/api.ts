@@ -1,7 +1,8 @@
 import { Category } from './category';
 import { Discussion } from './discussion';
 import { Post } from './post';
-import { User } from './user';
+import { Attributes, Group, User } from './user';
+import { Included } from './utils';
 
 // (POST /api/token)
 export type LoginRequest = {
@@ -41,6 +42,7 @@ export type ListCategoriesResponse = {
 // (GET /api/discussions)
 export type ListDiscussionsResponse = {
   data: Discussion[];
+  included: [Included<Attributes>];
 };
 
 // (GET /api/discussions?filter[search]=<termo-de-busca>)
@@ -94,9 +96,11 @@ export type CreateDiscussionRequest = {
 
 export type CreateDiscussionResponse = {
   data: Discussion;
+  included: [Included<Attributes>];
 };
 
 // (GET /api/users)
 export type ListUsersResponse = {
   data: User[];
+  included?: Group[];
 };

@@ -22,6 +22,7 @@ export class ProfileEffects {
             ProfileActions.profileSuccess({
               id: response.data[0]?.id,
               attributes: response.data[0]?.attributes,
+              included: response.included,
             }),
           ),
           catchError((error: ApiError) => of(ProfileActions.profileFailure({ error }))),

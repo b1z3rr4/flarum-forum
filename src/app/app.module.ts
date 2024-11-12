@@ -1,6 +1,6 @@
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,6 +23,9 @@ import { AuthEffects } from '../core/effects/AuthEffects.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileEffects } from '../core/effects/ProfileEffects.service';
 import { stores, metaReducers } from '../core/stores';
+import { FeedEffects } from '../core/effects/FeedEffects.service';
+import { AdminComponent } from './pages/admin/admin.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { stores, metaReducers } from '../core/stores';
     PostCreateComponent,
     CategoryCardComponent,
     LoginComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,11 +49,13 @@ import { stores, metaReducers } from '../core/stores';
     MatInputModule,
     MatCardModule,
     FormsModule,
+    MatChipsModule,
     HttpClientModule,
     StoreModule.forRoot(stores, { metaReducers }),
-    EffectsModule.forRoot([AuthEffects, ProfileEffects]),
+    EffectsModule.forRoot([AuthEffects, ProfileEffects, FeedEffects]),
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
