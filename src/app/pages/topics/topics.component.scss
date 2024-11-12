@@ -1,0 +1,38 @@
+main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.topic-list {
+  gap: 16px;
+  flex-grow: 1;
+  padding: 32px;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.category-list {
+  gap: 16px;
+  display: flex;
+  padding: 32px;
+  flex-shrink: 0;
+  justify-items: center;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  main {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .category-list {
+    display: none;
+  }
+}

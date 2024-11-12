@@ -1,0 +1,84 @@
+.app-bar {
+  mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--surface-color);
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .user-name {
+    font-size: 16px;
+    color: white;
+  }
+
+  .mat-mdc-icon-button {
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--input-color);
+  }
+
+  mat-icon {
+    width: 40px;
+    height: 100%;
+    font-size: 36px;
+  }
+}
+
+::ng-deep .mat-mdc-menu-panel {
+  background-color: var(--surface-color) !important;
+}
+
+.mat-mdc-menu-item {
+  color: var(--text-color) !important;
+  background-color: var(--surface-color) !important;
+}
+
+.mat-mdc-menu-item:hover {
+  background-color: var(--input-color) !important;
+}
+
+.not-click {
+  padding: 12px;
+  cursor: default;
+  border-bottom: 1px solid var(--input-color);
+  background-color: var(--surface-color) !important;
+
+  & span {
+    gap: 4px;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  &:hover {
+    background-color: var(--surface-color) !important;
+  }
+}

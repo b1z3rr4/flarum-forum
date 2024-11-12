@@ -1,0 +1,22 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-title>Welcome to Flarum</mat-card-title>
+    <mat-card-subtitle>Log in to continue</mat-card-subtitle>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="full-width login-button" (click)="onLogin()">Login</button>
+
+    <button mat-button color="accent" class="full-width google-button"><mat-icon>login</mat-icon> Login with Google</button>
+
+    <button mat-button class="full-width register-button">Register</button>
+  </mat-card>
+</div>

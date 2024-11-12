@@ -1,0 +1,92 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 64px);
+  background-color: var(--bg-color);
+
+  .login-card {
+    width: 100%;
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+    background-color: var(--surface-color);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+
+    .mat-mdc-card-title {
+      font-size: 1.8em;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .mat-mdc-card-subtitle {
+      font-size: 1em;
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+
+    .full-width {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .login-button {
+      margin-top: 20px;
+      background-color: var(--primary-color);
+      color: white;
+
+      &:hover {
+        background-color: var(--secondary-color);
+      }
+    }
+
+    .google-button {
+      display: flex;
+      font-weight: bold;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-color);
+
+      mat-icon {
+        margin-right: 8px;
+      }
+
+      &:hover {
+        background-color: var(--accent-color);
+      }
+    }
+
+    .register-button {
+      font-weight: bold;
+      color: var(--text-color);
+
+      &:hover {
+        background-color: var(--accent-color);
+      }
+    }
+  }
+}
+
+::ng-deep .mat-mdc-text-field-wrapper {
+  background-color: var(--input-color) !important;
+}
+
+::ng-deep .mdc-floating-label {
+  color: var(--text-color) !important;
+}
+
+::ng-deep .mdc-floating-label--float-above {
+  color: var(--primary-color) !important;
+}
+
+::bg-deep .mat-mdc-input-element {
+  color: var(--text-color) !important;
+}
+
+::ng-deep .mdc-line-ripple::before {
+  border-bottom-color: var(--text-color) !important;
+}
+
+::ng-deep .mdc-line-ripple::after {
+  border-bottom-color: var(--primary-color) !important;
+}

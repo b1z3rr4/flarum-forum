@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+$surface-color: #262d34;
+$bg-color: #1d252b;
+$input-color: #2c353d;
+$primary-color: #ff4400;
+$secondary-color: #ff6833;
+$text-color: #f7f7f7;
+$tertiary-color: #c4d0e5;
+$accent-color: #848ead;
+$warn-color: #d32f2f;
+
+:root {
+  --surface-color: #{$surface-color};
+  --bg-color: #{$bg-color};
+  --input-color: #{$input-color};
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --text-color: #{$text-color};
+  --tertiary-color: #{$tertiary-color};
+  --accent-color: #{$accent-color};
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--bg-color);
+}
+
+body {
+  margin: 0;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

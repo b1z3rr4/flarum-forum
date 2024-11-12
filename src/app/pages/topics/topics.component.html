@@ -1,0 +1,14 @@
+<main>
+  <section class="topic-list">
+    <app-post-create></app-post-create>
+    <app-topic-card *ngFor="let topic of topics" [topic]="topic"></app-topic-card>
+  </section>
+
+  <section class="category-list">
+    <h2 class="subtitle">Categories</h2>
+    <app-category-card
+      *ngFor="let category of categories"
+      [categoryTitle]="category.categoryTitle"
+      [postCount]="category.postCount"></app-category-card>
+  </section>
+</main>

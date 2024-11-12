@@ -1,0 +1,50 @@
+.topic-card-container {
+  .topic-card {
+    width: 100%;
+    border: none;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    mat-card-header {
+      padding: 16px;
+      color: var(--text-color);
+      background-color: var(--surface-color);
+    }
+
+    mat-card-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    mat-card-subtitle {
+      font-size: 14px;
+      color: var(--text-color);
+    }
+
+    mat-card-content {
+      padding: 16px;
+      background-color: var(--surface-color);
+    }
+
+    mat-card-actions {
+      display: flex;
+      padding: 16px;
+      justify-content: space-between;
+      background-color: var(--surface-color);
+    }
+
+    button {
+      background-color: var(--input-color);
+      color: var(--accent-color) !important;
+    }
+  }
+
+  .mdc-card {
+    border-radius: 8px;
+    background-color: var(--surface-color);
+  }
+}
