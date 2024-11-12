@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { FeedActions } from '../../../core/stores/feed/feed.actions';
-
 @Component({
   selector: 'app-post-create',
   templateUrl: './post-create.component.html',
@@ -13,23 +10,9 @@ export class PostCreateComponent {
 
   avatarUrl: string | null = null;
 
-  constructor(private store: Store) {}
+  constructor() {}
 
   onPost() {
-    const lines = this.postContent.split('\n');
-    const title = lines[0];
-    const content = lines.slice(1).join('\n');
-
-    if (title && content) {
-      this.store.dispatch(
-        FeedActions.discussionCreate({
-          title,
-          content,
-          relationships: {},
-        }),
-      );
-
-      this.postContent = '';
-    }
+    console.log('On Post...');
   }
 }

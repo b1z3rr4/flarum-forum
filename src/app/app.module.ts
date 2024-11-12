@@ -17,13 +17,6 @@ import { TopicsComponent } from './pages/topics/topics.component';
 import { PostCreateComponent } from './components/post-create/post-create.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { LoginComponent } from './pages/login/login.component';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { AuthEffects } from '../core/effects/AuthEffects.service';
-import { HttpClientModule } from '@angular/common/http';
-import { ProfileEffects } from '../core/effects/ProfileEffects.service';
-import { stores, metaReducers } from '../core/stores';
-import { FeedEffects } from '../core/effects/FeedEffects.service';
 import { AdminComponent } from './pages/admin/admin.component';
 import { MatChipsModule } from '@angular/material/chips';
 
@@ -50,9 +43,6 @@ import { MatChipsModule } from '@angular/material/chips';
     MatCardModule,
     FormsModule,
     MatChipsModule,
-    HttpClientModule,
-    StoreModule.forRoot(stores, { metaReducers }),
-    EffectsModule.forRoot([AuthEffects, ProfileEffects, FeedEffects]),
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
