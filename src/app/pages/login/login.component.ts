@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AuthActions } from '../../../core/stores/auth/auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,14 @@ export class LoginComponent {
   username = '';
   password = '';
 
-  constructor() {}
+  constructor(private store: Store) {}
 
-  onLogin() {}
+  onLogin() {
+    if (!this.username || !this.password) {
+      alert('Please enter both username and password');
+      return;
+    }
+
+    this.store.dispatch(AuthActions.login({ username: this.username, password: this.password }));
+  }
 }
