@@ -19,6 +19,12 @@ import { CategoryCardComponent } from './components/category-card/category-card.
 import { LoginComponent } from './pages/login/login.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, stores } from '../core/stores';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffect } from '../core/effects/AuthEffect.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ProfileEffect } from '../core/effects/ProfileEffect.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +49,9 @@ import { MatChipsModule } from '@angular/material/chips';
     MatCardModule,
     FormsModule,
     MatChipsModule,
+    HttpClientModule,
+    StoreModule.forRoot(stores, { metaReducers }),
+    EffectsModule.forRoot([AuthEffect, ProfileEffect]),
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

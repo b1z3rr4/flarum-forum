@@ -7,7 +7,7 @@
 
     <span class="spacer"></span>
 
-    <div class="user-info">
+    <div class="user-info" *ngIf="isLoggedIn">
       <mat-menu #userMenu="matMenu">
         <span class="not-click" mat-menu-item>
           {{ name }}

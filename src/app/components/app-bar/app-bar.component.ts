@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AuthSelectors } from '../../../core/stores/auth/auth.selectors';
+import { AuthActions } from '../../../core/stores/auth/auth.actions';
+import { ProfileActions } from '../../../core/stores/profile/profile.actions';
 
 @Component({
   selector: 'app-app-bar',
@@ -10,12 +15,32 @@ export class AppBarComponent implements OnInit {
   avatarUrl: string | null | undefined = null;
   username: string | null | undefined = null;
 
+  token$: Observable<string | null> | undefined;
+  username$: Observable<string | null> | undefined;
+
+  isLoggedIn: boolean = false;
+
   logoUrl: string = this.getRandomLogo();
 
-  constructor() {}
+  constructor(private store: Store) {}
 
   ngOnInit() {
-    console.log('On init...');
+    this.token$ = this.store.select(AuthSelectors.selectToken);
+    this.username$ = this.store.select(AuthSelectors.selectUsername);
+
+    this.token$.subscribe({
+      next: (token) => {
+        this.isLoggedIn = !!token;
+      },
+    });
+
+    this.username$.subscribe({
+      next: (username) => {
+        if (username) {
+          this.store.dispatch(ProfileActions.profile({ identifier: username }));
+        }
+      },
+    });
   }
 
   getRandomLogo(): string {
@@ -28,7 +53,7 @@ export class AppBarComponent implements OnInit {
   }
 
   logout() {
-    console.log('Logout...');
+    this.store.dispatch(AuthActions.logout());
   }
 
   goToProfile() {
